@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Docker-commands</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="docker.css">
+</head>
+<body>
+  
+    <div class="jumbotron text-center heading">
+        <h1>Docker</h1>
+        <h3>Docker commands cheat sheet (Season-1)</h3>
+    </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <h3 class="h3 cmds">Episode - 1</h3>
+      
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker version
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To know docker version.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker info
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To know all info about installed docker on the system.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container run -it --publish 80:80 nginx
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li> Flag 'it' means iteractive mode.</li>
+                <li> 
+                    80:80 - first 80 is the port exposed to local mechine 
+                    and second port 80 or whatever like 3306 in case of sql for dependent application.
+                </li>
+                <li>So we are mappin the port here.</li>
+                <li>If nginx is not there, it dowloads from dockerhub a public repository of docker.</li>
+                <li>Now type localhost in your browser and u'll see nginxr running.</li>
+                <li>To stop the container press ctrl + c.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container ls
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To know all running containers.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container ls -a
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To know all the containers whether it is running or not.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-warning text-white">
+        <div class="card-body">
+            <span class="badge badge-danger">Fun Fact:</span>
+            <p>Every docker container has a name and unique id (if u do not give ur container a name it will choose some random name)
+                example in our case for nginx has xenodochial_northcutt so first parth is a adjective
+                and second part is a name of either company/CEO/Famous personality/hacker/scientist.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container rm 6b6 
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To remove a container 6b6 is the first 3 character of id of our docker container and it deleted successfully
+                    it will return back the id or name.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker images
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To see all the images.</li>
+                <li>With above command we have deleted the container but not the image so will still NGINX image available</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker image rm 62d
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To delete a image  from a docker</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker pull nginx
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To pull image from docker hub.</li>
+                <li>It just pulls but does not creates a container.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container run -d -p 8080:80 --name mynginx nginx
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>Flag -d stands for detach means its runs in the background.</li>
+                <li>8080 is the port for exposing to local and 80 for the container.</li>
+                <li>Running in the background means u'll not see the container logs and ur terminal won't be clogged up</li>
+                <li>nginx is the server image</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container run -d -p 8081:80 --name myapache httpd
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To pull and run a apache container in the background.</li>
+                <li>Official name aache server is httpd that u'll find on <mark>https://hub.docker.com</mark>.</li>
+            </div>
+    </div> 
+
+    <hr>
+    
+    <br><br>
+    <div class="card bg-danger text-white animationbody">
+        <div class="card-body ">
+            <section>
+                <div class="content">
+                    <h2>INTERMISSION</h2>
+                    <h2>INTERMISSION</h2>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <hr>
+
+    </div>
+
+    <div class="col-md-12 episode2">
+        <button type="button" onclick="location.href='episode2.html'" class="btn btn-success btn-block">Explore Episode 2 >></button>
+    </div>
+
+  </div>
+
+
+  <center>&#169; Ambarish Parthasarthy</center>
+  
+</div>
+
+
+
+
+</body>
+</html>

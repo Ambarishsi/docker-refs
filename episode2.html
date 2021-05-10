@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Docker-commands-episode02</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="docker.css">
+</head>
+<body>
+  
+    <div class="jumbotron text-center heading">
+        <h1>Docker</h1>
+        <h3>Docker commands cheat sheet (Season-1)</h3>
+    </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <h3 class="h3 cmds">Episode - 2</h3>
+      
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123456 mysql
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>Pulling mysql image and running a container in detched mode.</li>
+                <li>By passing some environment variable.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker exec -it mysql mysql -uroot -p
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To get into mysql console.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container stop 4a1
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li> To stop a container running in detched/background mode.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container rm 4a1
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To delete a container.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container exec -it mynginx bash
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To bash into the container.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            cd usr/share/nginx/html 
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>Serving folder/Web root of nginx.</li>
+                <li>Do 'ls' to see the available files and you can also 'cat' that file to the see the content.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            exit
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To get out of the container.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker rm $(docker ps -aq)
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>This remove all the container.</li>
+                <li> '-f' flag will remove even if the running container.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker image build -t 9835625887/nginx-website .
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>For building ur images.</li>
+                <li>'-t' is a tag to recognise ur image.</li>
+                <li>'9835625887' is ur docker hub account id.</li>
+                <li>'nginx-website' is the name of the image.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker image build -t test-locally .
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>If u don't wish to push ur images to docker hub.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker container run -d -p 9001:80 test-locallly
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To run ur image on the docker container.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker push 9835625887/nginx-website
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>To push ur image to docker hub, so u can access it form anywhere in the world.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-dark text-white cards">
+        <div class="card-body">
+            docker login
+        </div>
+    </div>
+
+    <div class="card bg-light text-dark">
+            <div class="card-body">
+                <li>In case terminal asks u to authenticate.</li>
+            </div>
+    </div> 
+
+    <hr>
+
+    <div class="card bg-warning text-white">
+        <div class="card-body">
+            <span class="badge badge-danger">Dockerfile command:</span>
+            <p>FROM nginx:latest <br>
+
+                WORKDIR /usr/share/nginx/html<br>
+                
+                COPY . .</p>
+        </div>
+    </div>
+
+    <hr>
+    
+    <br><br>
+    <div class="card bg-danger text-white animationbody">
+        <div class="card-body ">
+            <section>
+                <div class="content">
+                    <h2>END</h2>
+                    <h2>END</h2>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <hr>
+
+    </div>
+
+  
+
+  </div>
+
+
+  <center>&#169; Ambarish Parthasarthy</center>
+  
+</div>
+
+
+
+
+</body>
+</html>
